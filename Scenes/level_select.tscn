@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh625jpt5nstu"]
+
+[ext_resource type="Script" path="res://Scenes/level_select.gd" id="1_v0inb"]
+[ext_resource type="Texture2D" uid="uid://dx55e0ulbqw5x" path="res://Free/Hello.png" id="2_xtosn"]
+[ext_resource type="FontFile" uid="uid://dg1t0416qrs7s" path="res://kg_happy/KGHAPPY.ttf" id="3_lvpe7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6fux"]
+texture = ExtResource("2_xtosn")
+modulate_color = Color(0.442911, 0.442911, 0.442911, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rhb1"]
+bg_color = Color(0.407843, 0.6, 0.921569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05v1g"]
+bg_color = Color(0.407843, 0.6, 0.921569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iikk"]
+bg_color = Color(0.407843, 0.6, 0.921569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_v0inb")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n6fux")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 350.0
+offset_top = 56.0
+offset_right = 766.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_lvpe7")
+theme_override_font_sizes/font_size = 47
+text = "Level Selecter"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 380.0
+offset_top = 207.0
+offset_right = 733.0
+offset_bottom = 416.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 29
+alignment = 1
+
+[node name="Level1" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_4rhb1")
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_05v1g")
+text = "Level 2"
+
+[node name="Back" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_1iikk")
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer2/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Back" to="." method="_on_back_pressed"]

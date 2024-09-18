@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkjmpuuraojlq"]
+
+[ext_resource type="Script" path="res://Scenes/end.gd" id="1_f57bt"]
+[ext_resource type="Texture2D" uid="uid://d3cm3rufhlbxp" path="res://Free/Items/Checkpoints/End/End (Idle).png" id="1_jxevp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_irc6g"]
+radius = 25.0
+height = 76.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_f57bt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_irc6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jxevp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
